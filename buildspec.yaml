@@ -1,5 +1,4 @@
 version: 0.2
-
 phases:
   install:
     runtime-versions:
@@ -14,8 +13,8 @@ phases:
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
     commands:
-	  - echo Building gradle project ...
-	  - gradle clean build
+      - echo Building gradle project ...
+      - gradle clean build
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest .
